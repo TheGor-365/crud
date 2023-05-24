@@ -1,0 +1,20 @@
+<h1 class="display-1 text-center text-success">
+  <%= @article.title %>
+</h1>
+
+<div class="my-5 p-5">
+  <p>
+    <%= @article.body %>
+  </p><br>
+
+  <small>
+    <span class="text-muted">Author: </span><%= link_to @article.author, nil, class: 'text-success' %><br>
+    <span class="text-muted">
+      Created: <span class="text-dark"><%= @article.created_at.strftime('%d-%m-%Y at %H:%m') %></span>
+    </span>
+  </small>
+</div>
+
+<h5 class="text-center">
+  <%= link_to 'Back', articles_path, class: 'text-secondary border p-5 shadow-sm' %>
+</h5>

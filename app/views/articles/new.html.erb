@@ -1,0 +1,26 @@
+<h1 class="text-success display-1 text-center mb-5">
+  New Article
+</h1>
+
+<div class="border rounded p-5 col-7 text-center bg-light">
+  <%= form_with model: @article do |form| %>
+    <div class="my-3">
+      <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="my-3">
+      <%= form.label :body, class: 'form-label' %>
+      <%= form.text_area :body, class: 'form-control' %>
+    </div>
+
+    <div class="my-3">
+      <%= form.label :author, class: 'form-label' %>
+      <%= form.text_field :author, class: 'form-control' %>
+    </div>
+
+    <div class="my-3">
+      <%= form.submit class: 'btn btn-sm btn-success' %>
+    </div>
+  <% end %>
+</div>

@@ -1,19 +1,25 @@
-<h1 class="display-1 text-center">
-  Articles
-</h1>
+<div class="row">
+  <div class="col-8">
+    <h1 class="display-1 text-center">
+      Articles
+    </h1>
+  </div>
+
+  <div class="col-4">
+    <h1 class="mt-3">
+      <%= link_to 'Create Article', new_article_path, class: 'text-success border p-5 shadow-sm' %>
+    </h1>
+  </div>
+</div>
 
 <div class="my-5 p-5">
   <% @articles.each do |article| %>
-    <p class="display-6">
-      <%= link_to article.title, nil %>
+    <p class="display-6 text-success">
+      <%= link_to article.title, article_path(article) %>
     </p>
 
-    <p>
-      <%= link_to article.body, nil, class: 'text-dark' %>
-    </p><br>
-
     <small>
-      <span class="text-muted">Author: </span><%= link_to article.author, nil, class: 'text-dark' %><br>
+      <span class="text-muted">Author: </span><%= link_to article.author, nil, class: 'text-success' %><br>
       <span class="text-muted">
         Created: <span class="text-dark"><%= article.created_at.strftime('%d-%m-%Y at %H:%m') %></span>
       </span>
