@@ -19,3 +19,13 @@
   <%= link_to 'Back', articles_path, class: 'text-secondary border p-5 shadow-sm' %>
   <%= link_to 'Edit', edit_article_path(@article), class: 'text-warning border p-5 shadow-sm' %>
 </h5>
+<br>
+<div class="text-center">
+  <%=
+    button_to 'Delete',
+    article_path(@article),
+    method: :delete,
+    data: { turbo_method: :delete, turbo_confirm: 'Are your sure?' },
+    class: 'btn btn-link m-0 p-0 text-decoration-none text-danger border p-5 shadow-sm my-3'
+  %>
+</div>
