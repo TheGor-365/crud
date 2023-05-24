@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-8">
-    <h1 class="display-1 text-center">
+    <h1 class="display-1 text-center text-success">
       Articles
     </h1>
   </div>
@@ -14,16 +14,19 @@
 
 <div class="my-5 p-5">
   <% @articles.each do |article| %>
-    <p class="display-6 text-success">
-      <%= link_to article.title, article_path(article) %>
-    </p>
+    <div class="border border-secondary my-3 p-5">
+      <p class="display-6 text-success">
+        <%= link_to article.title, article_path(article) %>
+      </p>
 
-    <small>
-      <span class="text-muted">Author: </span><%= link_to article.author, nil, class: 'text-success' %><br>
-      <span class="text-muted">
-        Created: <span class="text-dark"><%= article.created_at.strftime('%d-%m-%Y at %H:%m') %></span>
-      </span>
-    </small>
-    <hr class="my-5 col-5">
+      <div class="ms-5">
+        <small>
+          <span class="text-muted">Author: </span><%= link_to article.author, nil, class: 'text-success' %><br>
+          <span class="text-muted">
+            Created: <span class="text-dark"><%= article.created_at.strftime('%d-%m-%Y at %H:%m') %></span>
+          </span>
+        </small>
+      </div>
+    </div>
   <% end %>
 </div>
