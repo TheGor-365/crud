@@ -10,4 +10,6 @@
 #  updated_at :datetime         not null
 #
 class Article < ApplicationRecord
+  validates :title, :body, :author, presence: true
+  validates :title, :body, :author, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
 end
