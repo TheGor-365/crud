@@ -1,0 +1,23 @@
+<h1 class="display-1 text-center">
+  Articles
+</h1>
+
+<div class="my-5 p-5">
+  <% @articles.each do |article| %>
+    <p class="display-6">
+      <%= link_to article.title, nil %>
+    </p>
+
+    <p>
+      <%= link_to article.body, nil, class: 'text-dark' %>
+    </p><br>
+
+    <small>
+      <span class="text-muted">Author: </span><%= link_to article.author, nil, class: 'text-dark' %><br>
+      <span class="text-muted">
+        Created: <span class="text-dark"><%= article.created_at.strftime('%d-%m-%Y at %H:%m') %></span>
+      </span>
+    </small>
+    <hr class="my-5 col-5">
+  <% end %>
+</div>
