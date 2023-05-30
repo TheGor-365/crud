@@ -5,6 +5,8 @@
 #  id         :integer          not null, primary key
 #  author     :string
 #  body       :text
+#  edited_at  :datetime
+#  published  :boolean
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

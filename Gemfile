@@ -16,6 +16,8 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 gem "image_processing", "~> 1.2"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+gem 'simple_form'
+gem 'slim-rails'
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"

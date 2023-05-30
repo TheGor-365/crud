@@ -1,0 +1,24 @@
+h1.display-1.text-center.text-success
+  = @article.title
+
+.my-5.p-5.border.border-secondary
+  p
+    = @article.body
+  br
+  small
+    span.text-muted
+      | Author:
+    = link_to @article.author, nil, class: 'text-success'
+    br
+    span.text-muted
+      |  Created:
+      span.text-dark
+        = @article.created_at.strftime('%d-%m-%Y at %H:%m')
+br
+
+h5.text-center
+  = link_to 'Back', articles_path, class: 'text-secondary border p-5 shadow-sm'
+  = link_to 'Edit', edit_article_path(@article), class: 'text-warning border p-5 shadow-sm'
+br
+.text-center
+  = button_to 'Delete', article_path(@article), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are your sure?' }, class: 'btn btn-link m-0 p-0 text-decoration-none text-danger border p-5 shadow-sm my-3'

@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid
+
+    a.navbar-brand.me-5[href="/"]
+      | CRUD
+    button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+
+    #navbarNav.collapse.navbar-collapse.ms-5
+      ul.navbar-nav
+        li.nav-item
+          |  <a class="nav-link active" aria-current="page" href="
+          = root_path
+          | ">Articles
+        li.nav-item
+          |  <a class="nav-link" href="
+          = new_article_path
+          | ">Create article

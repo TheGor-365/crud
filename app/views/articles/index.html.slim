@@ -1,0 +1,24 @@
+.row
+  .col-8
+    h1.display-1.text-center.text-success
+      |  Articles
+  .col-4
+    h1.mt-3
+      = link_to 'Create Article', new_article_path, class: 'text-success border p-5 shadow-sm'
+.my-5.p-5
+  - @articles.each do |article|
+    .border.border-secondary.my-3.p-5
+
+      p.display-6.text-success
+        = link_to article.title, article_path(article)
+      .ms-5
+
+      small
+        span.text-muted
+          | Author:
+        = link_to article.author, nil, class: 'text-success'
+        br
+        span.text-muted
+          |  Created:
+          span.text-dark
+            = article.created_at.strftime('%d-%m-%Y at %H:%m')
