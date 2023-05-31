@@ -1,8 +1,10 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[ show edit update destroy ]
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.all.published.by_creation_date_desc
+    # @articles = Article.all.where(published: true).order(created_at: :desc)
+    # @articles = Article.all.order(created_at: :desc)
   end
 
   def new
@@ -11,7 +13,9 @@ class ArticlesController < ApplicationController
 
   def create
     # debugger
+    @author = Author.create(author_params)
     @article = Article.new(article_params)
+    @article.author_id = @author.id
 
     if @article.save
       redirect_to article_path(@article)
@@ -20,7 +24,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @author = Author.find(params[:id])
+  end
   def edit; end
 
   def update
@@ -49,9 +55,15 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
-      :author,
       :edited_at,
-      :published
+      :published,
+      :author
+    )
+  end
+
+  def author_params
+    params.require(:article).require(:author).permit(
+      :name
     )
   end
 end

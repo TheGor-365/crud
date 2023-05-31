@@ -10,15 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_130542) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_31_124212) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "published"
     t.datetime "edited_at"
+    t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
+  create_table "articles_authors", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_articles_authors_on_article_id"
+    t.index ["author_id"], name: "index_articles_authors_on_author_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "articles", "authors"
 end

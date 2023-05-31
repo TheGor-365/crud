@@ -8,10 +8,21 @@
   </p><br>
 
   <small>
-    <span class="text-muted">Author: </span><%= link_to @article.author, nil, class: 'text-success' %><br>
+    <span class="text-muted">Author: </span><%= @article.author.name %><br>
+
     <span class="text-muted">
       Created: <span class="text-dark"><%= @article.created_at.strftime('%d-%m-%Y at %H:%m') %></span>
+    </span><br>
+
+    <span class="<%= @article.published ? 'text-success' : 'text-danger' %>">
+      <%= @article.published ? 'PUBLISHED' : 'UNPUBLISHED' %>
     </span>
+
+    <% if @article.edited_at.present? %>
+      <span>
+        Edited: <%= @article.edited_at.strftime('%d-%m-%Y at %H:%m') %>
+      </span>
+    <% end %>
   </small>
 </div>
 

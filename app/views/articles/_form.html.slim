@@ -1,8 +1,9 @@
 .border.border-secondary.rounded.p-5.col-7
-  = simple_form_for article do |f|
+  = simple_form_for @article do |f|
       = f.input :title, placeholder: 'Enter article name', label: 'Name', hint: 'the article title', hint_html: { class: 'text-success' }
       = f.input :body, required: false
-      = f.input :author
+      = f.association :author do |a|
+        = a.input :name, label: 'Author'
       = f.input :published
       = f.input :edited_at
       = f.button :submit, class: 'btn-sm btn-success px-5'
